@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "author": "Ivan AryaPutra Rachmadhani",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 76.8, "left": -71.96, "attrs": {} },
+      { "type": "wokwi-relay-module", "id": "relay1", "top": -38.2, "left": 153.6, "attrs": {} },
+      { "type": "wokwi-led", "id": "led1", "top": 178.8, "left": 80.6, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 159.8,
+        "left": 163.2,
+        "attrs": { "color": "green", "xray": "1" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "relay1:VCC", "esp:3V3", "red", [ "h0" ] ],
+      [ "relay1:GND", "esp:GND.2", "black", [ "h0" ] ],
+      [ "relay1:IN", "esp:23", "green", [ "h-28.8", "v115", "h-28.8" ] ],
+      [ "esp:19", "btn1:1.l", "green", [ "h0" ] ],
+      [ "btn1:2.l", "esp:GND.2", "green", [ "h-19.2", "v-95.8" ] ],
+      [ "led1:A", "esp:18", "green", [ "v38.4", "h9.6", "v-76.8" ] ],
+      [ "led1:C", "esp:GND.2", "green", [ "v38.4", "h-9.2", "v-153.6" ] ]
+    ],
+    "dependencies": {}
+  }
